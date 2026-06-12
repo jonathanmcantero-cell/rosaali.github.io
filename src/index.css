@@ -24,3 +24,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
 }
+
+/* Multi-language robust toggle handling */
+html[lang="es"] .en-only { display: none !important; }
+html[lang="en"] .es-only { display: none !important; }
