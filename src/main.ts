@@ -1,8 +1,12 @@
+import { createIcons, icons } from 'lucide';
 import './index.css';
 
 // 1. Initialize Lucide Icons
-// @ts-ignore
-lucide.createIcons();
+try {
+  createIcons({ icons });
+} catch (e) {
+  console.error("Lucide Error", e);
+}
 
 // 2. Language Toggle Functionality
 const htmlTag = document.documentElement;
@@ -39,8 +43,11 @@ function renderMenuIcon() {
   iconElem.setAttribute('data-lucide', iconData);
   iconElem.className = 'w-7 h-7';
   menuIconContainer.appendChild(iconElem);
-  // @ts-ignore
-  lucide.createIcons();
+  try {
+    createIcons({ icons });
+  } catch (e) {
+    console.error("Lucide error parsing mobile menu icon", e);
+  }
 }
 
 function toggleMenu() {
